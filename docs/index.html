@@ -3,196 +3,165 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NEXUS - Constructor de Webs con IA</title>
+    <title>NEXUS - Construye tu web con IA</title>
     <meta
       name="description"
-      content="NEXUS convierte ideas en un sitio web hermoso con IA. Listo para GitHub Pages."
+      content="NEXUS crea sitios reales con IA conectando tus API de Gemini, Claude, OpenAI o Groq."
     />
-
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#9333ea" />
+    <meta name="theme-color" content="#0b0410" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="NEXUS" />
     <meta name="mobile-web-app-capable" content="yes" />
-
-    <!-- PWA Links -->
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/svg+xml" href="logo.svg" />
     <link rel="apple-touch-icon" href="icon-192.png" />
-
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page-shell">
       <header class="topbar">
-        <div class="brand">
-          <div class="logo-shell">
-            <svg class="logo-svg" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#b024d0"/>
-                  <stop offset="100%" style="stop-color:#d76ef2"/>
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                  <feMerge>
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-              <text x="0" y="18" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="url(#logoGradient)" filter="url(#glow)">NEXUS</text>
-              <circle cx="105" cy="12" r="8" fill="#b024d0" filter="url(#glow)">
-                <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
-              </circle>
-            </svg>
+        <div class="topbar-left">
+          <div class="brand-icon"><img src="logo.svg" alt="NEXUS logo" /></div>
+          <div class="brand-copy">
+            <strong>NEXUS</strong>
+            <span>Neón Nebuloso</span>
           </div>
-          <span class="tag">Constructor Web con IA</span>
         </div>
-        <div class="header-actions">
-          <button id="settingsBtn" class="button button-ghost">⚙️ Configurar APIs</button>
-          <a class="button button-primary" href="#generator">Crear Web</a>
+
+        <nav class="topbar-nav">
+          <a href="#hero">Inicio</a>
+          <a href="#generator">Generar</a>
+          <a href="#features">Características</a>
+          <a href="https://richardalexanderdiaz0-sudo.github.io/open-lovable/" target="_blank">Dominio</a>
+        </nav>
+
+        <div class="topbar-auth">
+          <button id="loginBtn" class="button button-ghost">Iniciar sesión</button>
+          <button id="registerBtn" class="button button-secondary">Registrarse</button>
+          <button id="logoutBtn" class="button button-secondary hidden">Salir</button>
         </div>
       </header>
 
       <main>
         <section class="hero" id="hero">
           <div class="hero-copy">
-            <span class="eyebrow">Web rápida. Estilo neón. Deploy en GitHub Pages.</span>
-            <h1>Construye tu sitio web con prompts y NEXUS lo genera al instante.</h1>
-            <p>
-              Diseña un sitio moderno, vibrante y compatible con GitHub Pages sin instalar nada.
-              Solo escribe tu idea y siente la energía del futuro en tu landing.
-            </p>
-            <div class="hero-actions">
-              <a href="#generator" class="button button-primary">Comenzar ahora</a>
-              <a href="#features" class="button button-secondary">Ver características</a>
+            <span class="eyebrow">IA real · Frontend real · Deploy real</span>
+            <h1>¿Qué le gustaría construir hoy?</h1>
+            <p>Conecta tus APIs de Google AI Studio, OpenAI, Claude o Groq. La IA genera frontend real y lo muestra paso a paso.</p>
+
+            <div class="hero-search">
+              <button id="openApisBtn" class="button button-icon">+</button>
+              <input id="webPrompt" type="text" placeholder="Describe tu sitio ideal: landing futurista, app SaaS, portafolio llamativo..." />
+              <select id="aiProvider">
+                <option value="openai">OpenAI</option>
+                <option value="gemini">Google Gemini</option>
+                <option value="claude">Claude</option>
+                <option value="groq">Groq</option>
+              </select>
+              <button id="generateWebBtn" class="button button-primary">Generar Web</button>
+            </div>
+
+            <div class="hero-links">
+              <a href="https://studio.google.ai/" target="_blank">Google AI Studio</a>
+              <a href="https://platform.openai.com/account/api-keys" target="_blank">OpenAI API</a>
+              <a href="https://www.anthropic.com/" target="_blank">Claude API</a>
+              <a href="https://groq.com/" target="_blank">Groq API</a>
+            </div>
+
+            <div class="hero-welcome" id="userStatus">
+              <span>Sin sesión</span>
+              <p>Inicia sesión con Google para un acceso rápido y guarda tus configuraciones.</p>
             </div>
           </div>
 
-          <div class="hero-panel">
-            <div class="panel-glow"></div>
-            <div class="panel-card">
-              <div class="panel-header">
-                <span class="panel-title">Vista previa instantánea</span>
-                <span class="panel-badge">static</span>
+          <div class="hero-visual">
+            <div class="hero-visual-panel">
+              <div class="hero-visual-header">
+                <span>Vista previa en vivo</span>
+                <small>HTML generado por IA real</small>
               </div>
-              <div class="panel-content">
-                <p>
-                  NEXUS está listo para GitHub Pages. Esta página es un ejemplo de cómo se vería
-                  tu sitio estático generado en un despliegue real.
-                </p>
-                <div class="preview-lines">
-                  <span>home</span>
-                  <span>servicios</span>
-                  <span>contacto</span>
+              <div class="hero-preview" id="previewContent">
+                <div class="preview-placeholder">
+                  <span>🎨</span>
+                  <p>Aquí verás tu web real al terminar la generación.</p>
                 </div>
               </div>
-              <div class="panel-footer">
-                <div class="preview-card">
-                  <span>Galería de diseño</span>
-                  <div class="preview-grid">
-                    <div class="preview-item"></div>
-                    <div class="preview-item"></div>
-                    <div class="preview-item"></div>
-                  </div>
-                </div>
-              </div>
+              <div class="hero-status" id="statusBanner">Pulsa Generar Web para iniciar el proceso.</div>
             </div>
           </div>
         </section>
 
         <section class="generator" id="generator">
-          <div class="generator-header">
-            <span class="eyebrow">Generador de Webs</span>
-            <h2>Crea tu sitio web con IA</h2>
-            <p>Configura tus APIs y genera webs hermosas con prompts.</p>
+          <div class="section-title">
+            <span class="eyebrow">Panel de control</span>
+            <h2>API keys y generación real</h2>
+            <p>Agrega tus claves y la IA comenzará a generar HTML real con estilo morado neón.</p>
           </div>
 
-          <div class="generator-layout">
-            <div class="generator-form">
-              <div class="form-section">
-                <h3>🔑 Configurar APIs</h3>
-                <div class="api-inputs">
-                  <div class="api-input">
-                    <label for="geminiKey">Google Gemini API Key</label>
-                    <input id="geminiKey" type="password" placeholder="Ingresa tu clave de Gemini..." />
-                  </div>
-                  <div class="api-input">
-                    <label for="claudeKey">Claude API Key</label>
-                    <input id="claudeKey" type="password" placeholder="Ingresa tu clave de Claude..." />
-                  </div>
-                  <div class="api-input">
-                    <label for="openaiKey">OpenAI API Key</label>
-                    <input id="openaiKey" type="password" placeholder="Ingresa tu clave de OpenAI..." />
-                  </div>
-                  <div class="api-input">
-                    <label for="groqKey">Groq API Key</label>
-                    <input id="groqKey" type="password" placeholder="Ingresa tu clave de Groq..." />
-                  </div>
-                </div>
-                <button id="saveApisBtn" class="button button-secondary">Guardar APIs</button>
+          <div class="generator-grid">
+            <div class="panel panel-settings">
+              <div class="panel-header">
+                <h3>Agregar APIs</h3>
+                <button id="openApisBtn2" class="button button-icon">+</button>
               </div>
-
-              <div class="form-section">
-                <h3>✨ Generar Web</h3>
-                <div class="prompt-input">
-                  <textarea id="webPrompt" placeholder="Describe tu web ideal... Ej: 'Landing page de agencia digital con estilo futurista, colores neón y animaciones suaves'"></textarea>
-                  <div class="prompt-actions">
-                    <select id="aiProvider">
-                      <option value="gemini">Google Gemini</option>
-                      <option value="claude">Claude</option>
-                      <option value="openai">OpenAI</option>
-                      <option value="groq">Groq</option>
-                    </select>
-                    <button id="generateWebBtn" class="button button-primary">Generar Web</button>
-                  </div>
+              <div class="api-list">
+                <div class="api-item">
+                  <label for="geminiKey">Google Gemini</label>
+                  <input id="geminiKey" type="password" placeholder="Tu API Key de Gemini" />
+                  <a href="https://studio.google.ai/" target="_blank">Obtener clave</a>
                 </div>
+                <div class="api-item">
+                  <label for="openaiKey">OpenAI</label>
+                  <input id="openaiKey" type="password" placeholder="Tu API Key de OpenAI" />
+                  <a href="https://platform.openai.com/account/api-keys" target="_blank">Obtener clave</a>
+                </div>
+                <div class="api-item">
+                  <label for="claudeKey">Claude</label>
+                  <input id="claudeKey" type="password" placeholder="Tu API Key de Claude" />
+                  <a href="https://www.anthropic.com/" target="_blank">Obtener clave</a>
+                </div>
+                <div class="api-item">
+                  <label for="groqKey">Groq</label>
+                  <input id="groqKey" type="password" placeholder="Tu API Key de Groq" />
+                  <a href="https://groq.com/" target="_blank">Obtener clave</a>
+                </div>
+              </div>
+              <button id="saveApisBtn" class="button button-secondary">Guardar claves</button>
+
+              <div class="domain-note">
+                <strong>Dominio personalizado:</strong>
+                <code>https://richardalexanderdiaz0-sudo.github.io/open-lovable/</code>
               </div>
             </div>
 
-            <div class="generator-preview">
-              <div class="preview-header">
-                <span>Vista Previa</span>
-                <div class="preview-controls">
-                  <button id="mobileView" class="view-btn active">📱 Móvil</button>
-                  <button id="desktopView" class="view-btn">💻 Desktop</button>
-                </div>
+            <div class="panel panel-preview">
+              <div class="panel-header">
+                <h3>Resultados</h3>
+                <span id="previewInfo">Esperando generación</span>
               </div>
-              <div class="preview-frame">
-                <div id="previewContent" class="preview-content">
-                  <div class="preview-placeholder">
-                    <div class="placeholder-icon">🎨</div>
-                    <p>Tu web aparecerá aquí cuando la generes</p>
-                  </div>
-                </div>
-              </div>
+              <div class="preview-frame" id="previewFrame"></div>
               <div class="preview-actions">
                 <button id="downloadBtn" class="button button-secondary" disabled>Descargar HTML</button>
-                <button id="deployBtn" class="button button-primary" disabled>Publicar en GitHub Pages</button>
+                <button id="deployBtn" class="button button-primary" disabled>Ver dominio</button>
               </div>
             </div>
           </div>
         </section>
 
         <section class="features" id="features">
-          <div class="section-header">
-            <span class="eyebrow">Perfecto para GitHub Pages</span>
-            <h2>Una web estática moderna, rápida y apta para desplegar.</h2>
-          </div>
           <div class="feature-grid">
             <article class="feature-card">
-              <h3>🚀 Listo para desplegar</h3>
-              <p>Solo sube la carpeta generada a GitHub Pages y habrás creado una web real.</p>
+              <h3>🔗 Inicio de sesión real</h3>
+              <p>Inicia sesión con Google y mantén tus ajustes listos.</p>
             </article>
             <article class="feature-card">
-              <h3>🎨 Diseño brillante</h3>
-              <p>Estilo púrpura neón con contraste, animaciones suaves y look profesional.</p>
+              <h3>🤖 IA real</h3>
+              <p>Conecta tus propias claves de API y genera HTML de verdad.</p>
             </article>
             <article class="feature-card">
-              <h3>🤖 IA integrada</h3>
-              <p>Conecta tus APIs de Gemini, Claude, OpenAI o Groq para generar webs únicas.</p>
+              <h3>🌐 Ready for Pages</h3>
+              <p>Dominio compatible con GitHub Pages y despliegue estático.</p>
             </article>
           </div>
         </section>
@@ -200,150 +169,43 @@
 
       <footer class="footer">
         <div>
-          <strong>NEXUS</strong> — Sitio estático listo para GitHub Pages.
+          <strong>NEXUS</strong> — Sitio creado para generar frontend real con IA y desplegarlo en GitHub.
         </div>
-        <a href="https://docs.github.com/en/pages" target="_blank">Deploy con GitHub Pages</a>
+        <a href="https://richardalexanderdiaz0-sudo.github.io/open-lovable/" target="_blank">https://richardalexanderdiaz0-sudo.github.io/open-lovable/</a>
       </footer>
 
-      <!-- Modal de configuración -->
       <div id="settingsModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-card">
           <div class="modal-header">
-            <h3>Configurar APIs de IA</h3>
-            <button id="closeModal" class="close-btn">&times;</button>
+            <h3>Agregar / editar claves de API</h3>
+            <button id="closeModal" class="button button-icon">×</button>
           </div>
-          <div class="modal-body">
-            <div class="api-inputs-modal">
-              <div class="api-input">
-                <label for="modalGeminiKey">Google Gemini API Key</label>
-                <input id="modalGeminiKey" type="password" placeholder="Ingresa tu clave de Gemini..." />
-              </div>
-              <div class="api-input">
-                <label for="modalClaudeKey">Claude API Key</label>
-                <input id="modalClaudeKey" type="password" placeholder="Ingresa tu clave de Claude..." />
-              </div>
-              <div class="api-input">
-                <label for="modalOpenaiKey">OpenAI API Key</label>
-                <input id="modalOpenaiKey" type="password" placeholder="Ingresa tu clave de OpenAI..." />
-              </div>
-              <div class="api-input">
-                <label for="modalGroqKey">Groq API Key</label>
-                <input id="modalGroqKey" type="password" placeholder="Ingresa tu clave de Groq..." />
-              </div>
+          <div class="modal-content">
+            <div class="modal-row">
+              <label for="modalGeminiKey">Google Gemini</label>
+              <input id="modalGeminiKey" type="password" placeholder="Clave Gemini" />
+            </div>
+            <div class="modal-row">
+              <label for="modalOpenaiKey">OpenAI</label>
+              <input id="modalOpenaiKey" type="password" placeholder="Clave OpenAI" />
+            </div>
+            <div class="modal-row">
+              <label for="modalClaudeKey">Claude</label>
+              <input id="modalClaudeKey" type="password" placeholder="Clave Claude" />
+            </div>
+            <div class="modal-row">
+              <label for="modalGroqKey">Groq</label>
+              <input id="modalGroqKey" type="password" placeholder="Clave Groq" />
             </div>
           </div>
           <div class="modal-footer">
-            <button id="saveModalApisBtn" class="button button-primary">Guardar y Cerrar</button>
+            <button id="saveModalApisBtn" class="button button-primary">Guardar claves</button>
           </div>
         </div>
       </div>
     </div>
+
     <div id="toast" class="toast">¡Listo!</div>
-    <script src="script.js"></script>
-  </body>
-</html>
-                  tu sitio estático generado en un despliegue real.
-                </p>
-                <div class="preview-lines">
-                  <span>home</span>
-                  <span>servicios</span>
-                  <span>contacto</span>
-                </div>
-              </div>
-              <div class="panel-footer">
-                <div class="preview-card">
-                  <span>Galería de diseño</span>
-                  <div class="preview-grid">
-                    <div class="preview-item"></div>
-                    <div class="preview-item"></div>
-                    <div class="preview-item"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="features" id="features">
-          <div class="section-header">
-            <span class="eyebrow">Perfecto para GitHub Pages</span>
-            <h2>Una web estática moderna, rápida y apta para desplegar.</h2>
-          </div>
-          <div class="feature-grid">
-            <article class="feature-card">
-              <h3>Listo para desplegar</h3>
-              <p>Solo sube la carpeta <strong>docs/</strong> a GitHub Pages y habrás creado una web real.</p>
-            </article>
-            <article class="feature-card">
-              <h3>Diseño brillante</h3>
-              <p>Estilo púrpura neón con contraste, animaciones suaves y look profesional.</p>
-            </article>
-            <article class="feature-card">
-              <h3>Interactivo sin servidor</h3>
-              <p>El demo funciona en el navegador con HTML, CSS y JavaScript puro.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="workflow" id="demo">
-          <div class="workflow-copy">
-            <span class="eyebrow">Prueba ahora</span>
-            <h2>Describe tu idea y siente la web en acción.</h2>
-            <p>
-              Este demostrador es un sitio estático que simula la experiencia de NEXUS. Está hecho
-              para GitHub Pages y no requiere backend.
-            </p>
-          </div>
-          <div class="workflow-card">
-            <div class="workflow-card-inner">
-              <div class="workflow-step">
-                <span class="step-number">1</span>
-                <div>
-                  <h3>Escribe tu prompt</h3>
-                  <p>Ejemplo: “Landing de agencia digital con estilo futurista y CTA neón”.</p>
-                </div>
-              </div>
-              <div class="workflow-step">
-                <span class="step-number">2</span>
-                <div>
-                  <h3>Genera la idea</h3>
-                  <p>Haz clic en el botón y ve la respuesta del sitio estático.</p>
-                </div>
-              </div>
-              <div class="prompt-panel">
-                <input id="promptInput" type="text" placeholder="Escribe tu idea aquí..." />
-                <button id="generateBtn" class="button button-primary">Generar web</button>
-              </div>
-              <div id="promptResult" class="prompt-result">
-                <p>Introduce tu prompt y haz clic en Generar para ver el demo.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <div>
-          <strong>NEXUS</strong> — Sitio estático listo para GitHub Pages.
-        </div>
-        <a href="https://docs.github.com/en/pages" target="_blank">Deploy con GitHub Pages</a>
-      </footer>
-    </div>
-    <div id="toast" class="toast">¡Listo!</div>
-    <!-- PWA Service Worker Registration -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js')
-            .then((registration) => {
-              console.log('SW registered: ', registration);
-            })
-            .catch((registrationError) => {
-              console.log('SW registration failed: ', registrationError);
-            });
-        });
-      }
-    </script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
