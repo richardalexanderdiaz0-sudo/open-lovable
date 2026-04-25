@@ -6,7 +6,7 @@
     <title>NEXUS - Construye tu web con IA</title>
     <meta
       name="description"
-      content="NEXUS crea sitios reales con IA conectando tus API de Gemini, Claude, OpenAI o Groq."
+      content="NEXUS crea sitios web con IA conectando tus APIs."
     />
     <meta name="theme-color" content="#0b0410" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -29,13 +29,6 @@
           </div>
         </div>
 
-        <nav class="topbar-nav">
-          <a href="#hero">Inicio</a>
-          <a href="#generator">Generar</a>
-          <a href="#features">Características</a>
-          <a href="https://richardalexanderdiaz0-sudo.github.io/open-lovable/" target="_blank">Dominio</a>
-        </nav>
-
         <div class="topbar-auth">
           <button id="loginBtn" class="button button-ghost">Iniciar sesión</button>
           <button id="registerBtn" class="button button-secondary">Registrarse</button>
@@ -46,160 +39,87 @@
       <main>
         <section class="hero" id="hero">
           <div class="hero-copy">
-            <span class="eyebrow">IA real · Frontend real · Deploy real</span>
-            <h1>¿Qué le gustaría construir hoy?</h1>
-            <p>Conecta tus APIs de Google AI Studio, OpenAI, Claude o Groq. La IA genera frontend real y lo muestra paso a paso.</p>
+            <h1>¿Qué quieres construir hoy?</h1>
 
-            <div class="hero-search">
+            <div class="hero-input">
               <button id="openApisBtn" class="button button-icon">+</button>
-              <input id="webPrompt" type="text" placeholder="Describe tu sitio ideal: landing futurista, app SaaS, portafolio llamativo..." />
-              <select id="aiProvider">
-                <option value="openai">OpenAI</option>
-                <option value="gemini">Google Gemini</option>
-                <option value="claude">Claude</option>
-                <option value="groq">Groq</option>
-              </select>
-              <button id="generateWebBtn" class="button button-primary">Generar Web</button>
-            </div>
-
-            <div class="hero-links">
-              <a href="https://studio.google.ai/" target="_blank">Google AI Studio</a>
-              <a href="https://platform.openai.com/account/api-keys" target="_blank">OpenAI API</a>
-              <a href="https://www.anthropic.com/" target="_blank">Claude API</a>
-              <a href="https://groq.com/" target="_blank">Groq API</a>
+              <input id="webPrompt" type="text" placeholder="Describe tu sitio web..." />
+              <button id="generateWebBtn" class="button button-primary" disabled>Construir</button>
             </div>
 
             <div class="hero-welcome" id="userStatus">
               <span>Sin sesión</span>
-              <p>Inicia sesión con Google para un acceso rápido y guarda tus configuraciones.</p>
+              <p>Inicia sesión con Google para guardar tus configuraciones.</p>
             </div>
           </div>
 
           <div class="hero-visual">
             <div class="hero-visual-panel">
               <div class="hero-visual-header">
-                <span>Vista previa en vivo</span>
-                <small>HTML generado por IA real</small>
+                <span>Vista previa</span>
               </div>
               <div class="hero-preview" id="previewContent">
                 <div class="preview-placeholder">
                   <span>🎨</span>
-                  <p>Aquí verás tu web real al terminar la generación.</p>
+                  <p>Aquí verás tu sitio web cuando esté listo.</p>
                 </div>
               </div>
-              <div class="hero-status" id="statusBanner">Pulsa Generar Web para iniciar el proceso.</div>
+              <div class="hero-status" id="statusBanner">Escribe tu idea y presiona Construir.</div>
             </div>
           </div>
         </section>
 
-        <section class="generator" id="generator">
-          <div class="section-title">
-            <span class="eyebrow">Panel de control</span>
-            <h2>API keys y generación real</h2>
-            <p>Agrega tus claves y la IA comenzará a generar HTML real con estilo morado neón.</p>
-          </div>
-
-          <div class="generator-grid">
-            <div class="panel panel-settings">
-              <div class="panel-header">
-                <h3>Agregar APIs</h3>
-                <button id="openApisBtn2" class="button button-icon">+</button>
-              </div>
-              <div class="api-list">
-                <div class="api-item">
-                  <label for="geminiKey">Google Gemini</label>
-                  <input id="geminiKey" type="password" placeholder="Tu API Key de Gemini" />
-                  <a href="https://studio.google.ai/" target="_blank">Obtener clave</a>
-                </div>
-                <div class="api-item">
-                  <label for="openaiKey">OpenAI</label>
-                  <input id="openaiKey" type="password" placeholder="Tu API Key de OpenAI" />
-                  <a href="https://platform.openai.com/account/api-keys" target="_blank">Obtener clave</a>
-                </div>
-                <div class="api-item">
-                  <label for="claudeKey">Claude</label>
-                  <input id="claudeKey" type="password" placeholder="Tu API Key de Claude" />
-                  <a href="https://www.anthropic.com/" target="_blank">Obtener clave</a>
-                </div>
-                <div class="api-item">
-                  <label for="groqKey">Groq</label>
-                  <input id="groqKey" type="password" placeholder="Tu API Key de Groq" />
-                  <a href="https://groq.com/" target="_blank">Obtener clave</a>
-                </div>
-              </div>
-              <button id="saveApisBtn" class="button button-secondary">Guardar claves</button>
-
-              <div class="domain-note">
-                <strong>Dominio personalizado:</strong>
-                <code>https://richardalexanderdiaz0-sudo.github.io/open-lovable/</code>
-              </div>
-            </div>
-
-            <div class="panel panel-preview">
-              <div class="panel-header">
-                <h3>Resultados</h3>
-                <span id="previewInfo">Esperando generación</span>
-              </div>
-              <div class="preview-frame" id="previewFrame"></div>
-              <div class="preview-actions">
-                <button id="downloadBtn" class="button button-secondary" disabled>Descargar HTML</button>
-                <button id="deployBtn" class="button button-primary" disabled>Ver dominio</button>
-              </div>
+        <section class="preview-section" id="previewSection" style="display: none;">
+          <div class="preview-header">
+            <h2>Tu sitio web está listo</h2>
+            <div class="preview-actions">
+              <button id="downloadBtn" class="button button-secondary" disabled>Descargar</button>
+              <button id="deployBtn" class="button button-primary" disabled>Ver sitio</button>
             </div>
           </div>
-        </section>
-
-        <section class="features" id="features">
-          <div class="feature-grid">
-            <article class="feature-card">
-              <h3>🔗 Inicio de sesión real</h3>
-              <p>Inicia sesión con Google y mantén tus ajustes listos.</p>
-            </article>
-            <article class="feature-card">
-              <h3>🤖 IA real</h3>
-              <p>Conecta tus propias claves de API y genera HTML de verdad.</p>
-            </article>
-            <article class="feature-card">
-              <h3>🌐 Ready for Pages</h3>
-              <p>Dominio compatible con GitHub Pages y despliegue estático.</p>
-            </article>
-          </div>
+          <div class="preview-frame" id="previewFrame"></div>
         </section>
       </main>
-
-      <footer class="footer">
-        <div>
-          <strong>NEXUS</strong> — Sitio creado para generar frontend real con IA y desplegarlo en GitHub.
-        </div>
-        <a href="https://richardalexanderdiaz0-sudo.github.io/open-lovable/" target="_blank">https://richardalexanderdiaz0-sudo.github.io/open-lovable/</a>
-      </footer>
 
       <div id="settingsModal" class="modal">
         <div class="modal-card">
           <div class="modal-header">
-            <h3>Agregar / editar claves de API</h3>
+            <h3>Configurar APIs</h3>
             <button id="closeModal" class="button button-icon">×</button>
           </div>
           <div class="modal-content">
             <div class="modal-row">
               <label for="modalGeminiKey">Google Gemini</label>
-              <input id="modalGeminiKey" type="password" placeholder="Clave Gemini" />
+              <input id="modalGeminiKey" type="password" placeholder="Tu clave de Gemini" />
+              <a href="https://studio.google.ai/" target="_blank">Obtener clave</a>
             </div>
             <div class="modal-row">
               <label for="modalOpenaiKey">OpenAI</label>
-              <input id="modalOpenaiKey" type="password" placeholder="Clave OpenAI" />
+              <input id="modalOpenaiKey" type="password" placeholder="Tu clave de OpenAI" />
+              <a href="https://platform.openai.com/account/api-keys" target="_blank">Obtener clave</a>
             </div>
             <div class="modal-row">
               <label for="modalClaudeKey">Claude</label>
-              <input id="modalClaudeKey" type="password" placeholder="Clave Claude" />
+              <input id="modalClaudeKey" type="password" placeholder="Tu clave de Claude" />
+              <a href="https://www.anthropic.com/" target="_blank">Obtener clave</a>
             </div>
             <div class="modal-row">
               <label for="modalGroqKey">Groq</label>
-              <input id="modalGroqKey" type="password" placeholder="Clave Groq" />
+              <input id="modalGroqKey" type="password" placeholder="Tu clave de Groq" />
+              <a href="https://groq.com/" target="_blank">Obtener clave</a>
+            </div>
+            <div class="modal-row">
+              <label for="aiProvider">Proveedor de IA</label>
+              <select id="aiProvider">
+                <option value="openai">OpenAI</option>
+                <option value="gemini">Google Gemini</option>
+                <option value="claude">Claude</option>
+                <option value="groq">Groq</option>
+              </select>
             </div>
           </div>
           <div class="modal-footer">
-            <button id="saveModalApisBtn" class="button button-primary">Guardar claves</button>
+            <button id="saveModalApisBtn" class="button button-primary">Guardar</button>
           </div>
         </div>
       </div>

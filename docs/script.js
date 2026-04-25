@@ -83,6 +83,13 @@ const saveApiKeys = () => {
   showToast('Claves guardadas correctamente');
 };
 
+const updateGenerateButtonState = () => {
+  const hasPrompt = webPrompt.value.trim().length > 0;
+  const hasAnyApi = Object.values(apiKeys).some(key => key.trim().length > 0);
+  generateWebBtn.disabled = !(hasPrompt && hasAnyApi);
+  generateWebBtn.textContent = generateWebBtn.disabled ? 'Agrega APIs y escribe tu prompt' : 'Construir';
+};
+
 const saveModalApiKeys = () => {
   apiKeys = {
     gemini: modalGeminiKey.value.trim(),
@@ -96,6 +103,7 @@ const saveModalApiKeys = () => {
   claudeKey.value = apiKeys.claude;
   groqKey.value = apiKeys.groq;
   settingsModal.classList.remove('show');
+  updateGenerateButtonState();
   showToast('Claves guardadas correctamente');
 };
 
@@ -396,5 +404,8 @@ webPrompt.addEventListener('keydown', (event) => {
   }
 });
 
+webPrompt.addEventListener('input', updateGenerateButtonState);
+
 onAuthStateChanged(auth, (user) => updateUserState(user));
 loadApiKeys();
+updateGenerateButtonState();
