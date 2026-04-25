@@ -1,8 +1,8 @@
 import { HTMLAttributes } from "react";
 
 export default function FirecrawlIcon({
-  fill = "var(--heat-100)",
-  innerFillColor = "var(--background-base)",
+  fill = "#b024d0",
+  innerFillColor = "#a855f7",
   ...attrs
 }: HTMLAttributes<HTMLOrSVGElement> & {
   innerFillColor?: string;
@@ -11,10 +11,9 @@ export default function FirecrawlIcon({
   return (
     <svg
       {...attrs}
-      height="600"
-      preserveAspectRatio="xMidYMid meet"
-      viewBox="0 0 600 600"
-      width="600"
+      height="32"
+      viewBox="0 0 32 32"
+      width="32"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>

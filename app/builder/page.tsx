@@ -198,9 +198,9 @@ export default function BuilderPage() {
       toast.success("Website generated successfully!");
       
     } catch (error) {
-      console.error("Error generating website:", error);
-      toast.error("Failed to generate website. Please try again.");
-      setProgress("Error occurred");
+      console.error("Error al generar el sitio web:", error);
+      toast.error("Error al generar el sitio web. Por favor, intenta de nuevo.");
+      setProgress("Error ocurrió");
       setTimeout(() => router.push('/'), 2000);
     }
   };
@@ -215,7 +215,7 @@ export default function BuilderPage() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast.success("Code downloaded!");
+    toast.success("¡Código descargado!");
   };
 
   return (
@@ -223,21 +223,21 @@ export default function BuilderPage() {
       <div className="flex h-screen">
         {/* Sidebar */}
         <div className="w-80 bg-white border-r border-border-faint p-24 flex flex-col">
-          <h2 className="text-title-small font-semibold mb-16">Building Your Website</h2>
+          <h2 className="text-title-small font-semibold mb-16">Construyendo Tu Sitio Web</h2>
           
           <div className="space-y-12 flex-1">
             <div>
-              <div className="text-label-small text-black-alpha-56 mb-4">Target URL</div>
+              <div className="text-label-small text-black-alpha-56 mb-4">URL de Destino</div>
               <div className="text-body-medium text-accent-black truncate">{targetUrl}</div>
             </div>
             
             <div>
-              <div className="text-label-small text-black-alpha-56 mb-4">Style</div>
+              <div className="text-label-small text-black-alpha-56 mb-4">Estilo</div>
               <div className="text-body-medium text-accent-black capitalize">{selectedStyle}</div>
             </div>
             
             <div>
-              <div className="text-label-small text-black-alpha-56 mb-4">Status</div>
+              <div className="text-label-small text-black-alpha-56 mb-4">Estado</div>
               <div className="text-body-medium text-heat-100">{progress}</div>
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function BuilderPage() {
                 onClick={downloadCode}
                 className="w-full py-12 px-16 bg-heat-100 hover:bg-heat-200 text-white rounded-10 text-label-medium transition-all"
               >
-                Download Code
+                Descargar Código
               </button>
             )}
             
@@ -256,7 +256,7 @@ export default function BuilderPage() {
               onClick={() => router.push('/')}
               className="w-full py-12 px-16 bg-black-alpha-4 hover:bg-black-alpha-6 rounded-10 text-label-medium transition-all"
             >
-              Start Over
+              Comenzar de Nuevo
             </button>
           </div>
         </div>

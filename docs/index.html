@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEXUS - Constructor de Webs con IA</title>
+    <meta
+      name="description"
+      content="NEXUS convierte ideas en un sitio web hermoso con IA. Listo para GitHub Pages."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo-shell">
+            <span class="mark">NEXUS</span>
+            <span class="spark">✨</span>
+          </div>
+          <span class="tag">Constructor Web con IA</span>
+        </div>
+        <a class="button button-ghost" href="#hero">Ver sitio</a>
+      </header>
+
+      <main>
+        <section class="hero" id="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">Web rápida. Estilo neón. Deploy en GitHub Pages.</span>
+            <h1>Construye tu sitio web con prompts y NEXUS lo genera al instante.</h1>
+            <p>
+              Diseña un sitio moderno, vibrante y compatible con GitHub Pages sin instalar nada.
+              Solo escribe tu idea y siente la energía del futuro en tu landing.
+            </p>
+            <div class="hero-actions">
+              <a href="#demo" class="button button-primary">Probar demo</a>
+              <a href="#features" class="button button-secondary">Ver características</a>
+            </div>
+          </div>
+
+          <div class="hero-panel">
+            <div class="panel-glow"></div>
+            <div class="panel-card">
+              <div class="panel-header">
+                <span class="panel-title">Vista previa instantánea</span>
+                <span class="panel-badge">static</span>
+              </div>
+              <div class="panel-content">
+                <p>
+                  NEXUS está listo para GitHub Pages. Esta página es un ejemplo de cómo se vería
+                  tu sitio estático generado en un despliegue real.
+                </p>
+                <div class="preview-lines">
+                  <span>home</span>
+                  <span>servicios</span>
+                  <span>contacto</span>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <div class="preview-card">
+                  <span>Galería de diseño</span>
+                  <div class="preview-grid">
+                    <div class="preview-item"></div>
+                    <div class="preview-item"></div>
+                    <div class="preview-item"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="features" id="features">
+          <div class="section-header">
+            <span class="eyebrow">Perfecto para GitHub Pages</span>
+            <h2>Una web estática moderna, rápida y apta para desplegar.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Listo para desplegar</h3>
+              <p>Solo sube la carpeta <strong>docs/</strong> a GitHub Pages y habrás creado una web real.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Diseño brillante</h3>
+              <p>Estilo púrpura neón con contraste, animaciones suaves y look profesional.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Interactivo sin servidor</h3>
+              <p>El demo funciona en el navegador con HTML, CSS y JavaScript puro.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="workflow" id="demo">
+          <div class="workflow-copy">
+            <span class="eyebrow">Prueba ahora</span>
+            <h2>Describe tu idea y siente la web en acción.</h2>
+            <p>
+              Este demostrador es un sitio estático que simula la experiencia de NEXUS. Está hecho
+              para GitHub Pages y no requiere backend.
+            </p>
+          </div>
+          <div class="workflow-card">
+            <div class="workflow-card-inner">
+              <div class="workflow-step">
+                <span class="step-number">1</span>
+                <div>
+                  <h3>Escribe tu prompt</h3>
+                  <p>Ejemplo: “Landing de agencia digital con estilo futurista y CTA neón”.</p>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <span class="step-number">2</span>
+                <div>
+                  <h3>Genera la idea</h3>
+                  <p>Haz clic en el botón y ve la respuesta del sitio estático.</p>
+                </div>
+              </div>
+              <div class="prompt-panel">
+                <input id="promptInput" type="text" placeholder="Escribe tu idea aquí..." />
+                <button id="generateBtn" class="button button-primary">Generar web</button>
+              </div>
+              <div id="promptResult" class="prompt-result">
+                <p>Introduce tu prompt y haz clic en Generar para ver el demo.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div>
+          <strong>NEXUS</strong> — Sitio estático listo para GitHub Pages.
+        </div>
+        <a href="https://docs.github.com/en/pages" target="_blank">Deploy con GitHub Pages</a>
+      </footer>
+    </div>
+    <div id="toast" class="toast">¡Listo!</div>
+    <script src="script.js"></script>
+  </body>
+</html>

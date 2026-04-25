@@ -1,8 +1,9 @@
 {
-  "name": "open-lovable",
-  "version": "0.1.0",
+  "name": "nexus",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "NEXUS - Crea sitios web increíbles con IA instantáneamente. Describe tu visión en prompts y NEXUS lo construye para ti.",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

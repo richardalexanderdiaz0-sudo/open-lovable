@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export default function HeaderDropdownMobile({
   ctaHref = "/signin/signup",
-  ctaLabel = "Sign up",
+  ctaLabel = "Regístrate",
 }: {
   ctaHref?: string;
   ctaLabel?: string;

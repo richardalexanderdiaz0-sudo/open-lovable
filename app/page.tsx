@@ -68,14 +68,14 @@ export default function HomePage() {
   };
 
   const styles = [
-    { id: "1", name: "Glassmorphism", description: "Frosted glass effect" },
-    { id: "2", name: "Neumorphism", description: "Soft 3D shadows" },
-    { id: "3", name: "Brutalism", description: "Bold and raw" },
-    { id: "4", name: "Minimalist", description: "Clean and simple" },
-    { id: "5", name: "Dark Mode", description: "Dark theme design" },
-    { id: "6", name: "Gradient Rich", description: "Vibrant gradients" },
-    { id: "7", name: "3D Depth", description: "Dimensional layers" },
-    { id: "8", name: "Retro Wave", description: "80s inspired" },
+    { id: "1", name: "Cristal Esmerilado", description: "Efecto de vidrio esmerilado" },
+    { id: "2", name: "Neumorfismo", description: "Sombras 3D suave" },
+    { id: "3", name: "Brutalismo", description: "Audaz y crudo" },
+    { id: "4", name: "Minimalista", description: "Limpio y simple" },
+    { id: "5", name: "Modo Oscuro", description: "Diseño de tema oscuro" },
+    { id: "6", name: "Gradiente Vibrante", description: "Gradientes vivos" },
+    { id: "7", name: "Profundidad 3D", description: "Capas dimensionales" },
+    { id: "8", name: "Onda Retro", description: "Inspirado en los 80s" },
   ];
 
   const models = appConfig.ai.availableModels.map(model => ({
@@ -87,13 +87,13 @@ export default function HomePage() {
     const inputValue = url.trim();
 
     if (!inputValue) {
-      toast.error("Please enter a URL or search term");
+      toast.error("Por favor ingresa una URL o describe tu idea");
       return;
     }
 
     // Validate brand extension mode requirements
     if (extendBrandStyles && isURL(inputValue) && !additionalInstructions.trim()) {
-      toast.error("Please describe what you want to build with this brand's styles");
+      toast.error("Por favor describe qué quieres construir con los estilos de esta marca");
       return;
     }
     

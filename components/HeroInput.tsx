@@ -21,7 +21,7 @@ export default function HeroInput({
   value, 
   onChange, 
   onSubmit, 
-  placeholder = "Describe what you want to build...",
+  placeholder = "Describe el sitio web que deseas crear...",
   className = "",
   showSearchFeatures = true
 }: HeroInputProps) {

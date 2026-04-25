@@ -1,8 +1,8 @@
-# Open Lovable
+# NEXUS
 
-Chat with AI to build React apps instantly. An example app made by the [Firecrawl](https://firecrawl.dev/?ref=open-lovable-github) team. For a complete cloud solution, check out [Lovable.dev](https://lovable.dev/) ❤️.
+Crea sitios web increíbles escribiendo prompts a la IA. Una app de ejemplo hecha por el equipo de [Firecrawl](https://firecrawl.dev/?ref=nexus). Para una solución en la nube completa, revisa [Lovable.dev](https://lovable.dev/) ❤️.
 
-<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZtaHFleGRsMTNlaWNydGdianI4NGQ4dHhyZjB0d2VkcjRyeXBucCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZFVLWMa6dVskQX0qu1/giphy.gif" alt="Open Lovable Demo" width="100%"/>
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZtaHFleGRsMTNlaWNydGdianI4NGQ4dHhyZjB0d2VkcjRyeXBucCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZFVLWMa6dVskQX0qu1/giphy.gif" alt="Demostración de NEXUS" width="100%"/>
 
 ## Setup
 
@@ -61,6 +61,16 @@ pnpm dev  # or npm run dev / yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
+
+## Sitio estático para GitHub Pages
+
+La versión estática lista para GitHub Pages se encuentra en la carpeta `docs/`.
+
+- Si activas GitHub Pages, usa la opción **Source: /docs**.
+- El archivo principal es `docs/index.html`.
+- Los estilos y el comportamiento están en `docs/styles.css` y `docs/script.js`.
+
+Esta versión es una web estática independiente, lista para desplegarse sin servidor.
 
 ## License
 
