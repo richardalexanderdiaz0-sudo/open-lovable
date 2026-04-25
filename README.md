@@ -1,6 +1,20 @@
-# NEXUS
+# NEXUS - PWA
 
-Crea sitios web increíbles escribiendo prompts a la IA. Una app de ejemplo hecha por el equipo de [Firecrawl](https://firecrawl.dev/?ref=nexus). Para una solución en la nube completa, revisa [Lovable.dev](https://lovable.dev/) ❤️.
+Crea sitios web increíbles escribiendo prompts a la IA. Una **Progressive Web App (PWA)** que funciona offline y se puede instalar en dispositivos móviles y desktop. Hecha por el equipo de [Firecrawl](https://firecrawl.dev/?ref=nexus). Para una solución en la nube completa, revisa [Lovable.dev](https://lovable.dev/) ❤️.
+
+## ✨ Características PWA
+
+- 🚀 **Instalable**: Se puede instalar como una app nativa en móviles y desktop
+- 📱 **Responsive**: Funciona perfectamente en todos los dispositivos
+- 🔌 **Offline**: Funciona sin conexión a internet (modo cache)
+- ⚡ **Rápida**: Carga instantánea con service worker
+- 🎨 **Nativa**: Se siente como una app nativa con iconos y splash screen
+
+## 🌐 Demo en Vivo
+
+**URL**: https://richardalexanderdiaz0-sudo.github.io/open-lovable/docs/
+
+**Instalación**: En Chrome/Edge, haz click en "Instalar NEXUS" o en el botón de instalar en la barra de direcciones.
 
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmZtaHFleGRsMTNlaWNydGdianI4NGQ4dHhyZjB0d2VkcjRyeXBucCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZFVLWMa6dVskQX0qu1/giphy.gif" alt="Demostración de NEXUS" width="100%"/>
 
