@@ -30,33 +30,98 @@
         </div>
 
         <div class="topbar-auth">
-          <button id="loginBtn" class="button button-ghost">Iniciar sesión</button>
-          <button id="registerBtn" class="button button-secondary">Registrarse</button>
+          <button id="loginBtn" class="button button-google">
+            <span class="google-mark">G</span>
+            Iniciar sesión con Google
+          </button>
+          <button id="registerBtn" class="button button-google-secondary">
+            <span class="google-mark">G</span>
+            Registrarse con Google
+          </button>
           <button id="logoutBtn" class="button button-secondary hidden">Salir</button>
         </div>
       </header>
+
+      <section class="dashboard hidden" id="dashboardSection">
+        <div class="dashboard-panel">
+          <div class="dashboard-header">
+            <span class="eyebrow">Mi panel</span>
+            <h2>Tu dashboard NEXUS</h2>
+            <p>Administra tu historial real, archivos subidos y configuración de IA.</p>
+          </div>
+
+          <div class="dashboard-cards">
+            <article class="dashboard-card">
+              <strong id="appCount">0</strong>
+              <span>Apps generadas</span>
+            </article>
+            <article class="dashboard-card">
+              <strong id="dashboardFiles">0</strong>
+              <span>Archivos e imágenes</span>
+            </article>
+            <article class="dashboard-card">
+              <strong id="dashboardProvider">OpenAI</strong>
+              <span>Proveedor activo</span>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="dashboard-panel-card">
+              <div class="panel-header">
+                <h3>Historial de apps</h3>
+              </div>
+              <div class="history-list" id="historyList">
+                <div class="empty">
+                  Aún no has generado una app. Presiona Construir para crear tu primera web.
+                </div>
+              </div>
+            </section>
+
+            <section class="dashboard-panel-card">
+              <div class="panel-header">
+                <h3>Configuración</h3>
+              </div>
+              <div class="config-sheet">
+                <div class="config-row"><span>Modelo actual</span><strong id="dashboardProviderLabel">OpenAI</strong></div>
+                <div class="config-row"><span></span></div>
+              </div>
+              <div class="dashboard-actions">
+                <button id="openApisBtn2" class="button button-secondary">Editar IA y archivos</button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
 
       <main>
         <section class="hero" id="hero">
           <div class="hero-copy">
             <h1>¿Qué quieres construir hoy?</h1>
 
-            <div class="hero-input">
-              <button id="openApisBtn" class="button button-icon">+</button>
+            <div class="hero-search">
+              <button id="attachmentBtn" class="button button-icon">+</button>
               <input id="webPrompt" type="text" placeholder="Describe tu sitio web..." />
-              <button id="generateWebBtn" class="button button-primary" disabled>Construir</button>
+              <button id="modelSelectBtn" class="button button-secondary">Modelo: Standard</button>
+              <button id="generateWebBtn" class="button button-primary" disabled>Agrega APIs y escribe tu prompt</button>
             </div>
 
             <div class="hero-welcome" id="userStatus">
               <span>Sin sesión</span>
-              <p>Inicia sesión con Google para guardar tus configuraciones.</p>
+              <p>Inicia sesión con Google para activar tu dashboard y conservar tus apps generadas.</p>
+            </div>
+
+            <div class="hero-footnote">
+              <p>Toca <strong>+</strong> para agregar archivos o imágenes, y cambia el modelo tocando el nombre del proveedor.</p>
             </div>
           </div>
 
           <div class="hero-visual">
             <div class="hero-visual-panel">
               <div class="hero-visual-header">
-                <span>Vista previa</span>
+                <div>
+                  <span>Vista previa</span>
+                  <small id="previewInfo">Aún no hay contenido generado</small>
+                </div>
               </div>
               <div class="hero-preview" id="previewContent">
                 <div class="preview-placeholder">
@@ -69,22 +134,48 @@
           </div>
         </section>
 
-        <section class="preview-section" id="previewSection" style="display: none;">
-          <div class="preview-header">
-            <h2>Tu sitio web está listo</h2>
-            <div class="preview-actions">
-              <button id="downloadBtn" class="button button-secondary" disabled>Descargar</button>
-              <button id="deployBtn" class="button button-primary" disabled>Ver sitio</button>
+        <section class="workspace hidden" id="workspaceSection">
+          <div class="workspace-header">
+            <div>
+              <h2>Visor interactivo</h2>
+              <p>Usa el chat para modificar tu app, cambiar modelo y seguir creando en vivo.</p>
+            </div>
+            <button id="closeWorkspaceBtn" class="button button-secondary">Volver</button>
+          </div>
+
+          <div class="workspace-shell">
+            <div class="workspace-preview">
+              <div class="panel-header">
+                <h3>Vista en vivo</h3>
+                <div class="preview-actions">
+                  <button id="downloadBtn" class="button button-secondary" disabled>Descargar</button>
+                  <button id="deployBtn" class="button button-primary" disabled>Ver sitio</button>
+                </div>
+              </div>
+              <div class="preview-frame" id="previewFrame"></div>
+            </div>
+
+            <div class="workspace-chat">
+              <div class="panel-header">
+                <h3>Chat de IA</h3>
+                <button id="openApisBtn2" class="button button-secondary">Configurar IA</button>
+              </div>
+              <div class="chat-messages" id="chatMessages">
+                <div class="empty">Aquí podrás escribir para modificar tu aplicación en tiempo real.</div>
+              </div>
+              <div class="chat-input-row">
+                <textarea id="chatInput" placeholder="Modifica tu app, pide cambios o selecciona otro modelo..."></textarea>
+                <button id="chatSendBtn" class="button button-primary">Enviar</button>
+              </div>
             </div>
           </div>
-          <div class="preview-frame" id="previewFrame"></div>
         </section>
       </main>
 
       <div id="settingsModal" class="modal">
         <div class="modal-card">
           <div class="modal-header">
-            <h3>Configurar APIs</h3>
+            <h3>Configurar IA y archivos</h3>
             <button id="closeModal" class="button button-icon">×</button>
           </div>
           <div class="modal-content">
@@ -116,6 +207,13 @@
                 <option value="claude">Claude</option>
                 <option value="groq">Groq</option>
               </select>
+            </div>
+            <div class="modal-row">
+              <label for="attachmentInput">Archivos e imágenes</label>
+              <input id="attachmentInput" type="file" multiple accept="image/*,.png,.jpg,.jpeg,.gif,.svg,.webp,.txt,.md,.json" />
+            </div>
+            <div class="attachment-list" id="attachmentsList">
+              <div class="empty">Aún no has añadido archivos.</div>
             </div>
           </div>
           <div class="modal-footer">
